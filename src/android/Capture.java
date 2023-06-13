@@ -131,8 +131,9 @@ public class Capture extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-        this.applicationId = (String) BuildHelper.getBuildConfigValue(this.cordova.getActivity(), "APPLICATION_ID");
-        this.applicationId = preferences.getString("applicationId", this.applicationId);
+       // this.applicationId = (String) BuildHelper.getBuildConfigValue(this.cordova.getActivity(), "APPLICATION_ID");
+       // this.applicationId = preferences.getString("applicationId", this.applicationId);
+        this.applicationId = cordova.getContext().getPackageName();
 
         if (action.equals("getFormatData")) {
             JSONObject obj = getFormatData(args.getString(0), args.getString(1));
